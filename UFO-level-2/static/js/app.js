@@ -38,7 +38,7 @@ function loadCountryOption() {
     });
 }
 
-// Loading Shape for filter
+// Loading Shape Names for filter
 function loadShapeOption() {
     var shape = d3.select("#shape");
     var shapeNames = tableData.map(row => row.shape).filter((value, index, self) => self.indexOf(value) === index);
@@ -48,7 +48,7 @@ function loadShapeOption() {
     });
 }
 
-// load data
+// loading table data and filters on page load
 loadTable(tableData);
 loadStateOption();
 loadCountryOption();
@@ -77,8 +77,6 @@ function runEnter() {
     var inputCountryElement = d3.select("#country");
     var inputShapeElement = d3.select("#shape");
 
-
-  
     // Get the value property of the input element
     var inputDatetime = inputDatetimeElement.property("value");
     var inputCity = inputCityElement.property("value");
@@ -93,7 +91,7 @@ function runEnter() {
     console.log(inputCountry);
     console.log(inputShape);
   
-    //Filtering table data based on user input
+    //Filtering table data based on user inputs all are in AND condition
     var filteredData = tableData.filter(ufoRow => ((ufoRow.datetime == inputDatetime) && (ufoRow.city == inputCity)
                                                     && (ufoRow.state == inputState) && (ufoRow.country == inputCountry) 
                                                     && (ufoRow.shape == inputShape)));
