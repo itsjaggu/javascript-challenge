@@ -29,7 +29,7 @@ var form = d3.select("#form");
 
 // Create event handlers for clicking the button or pressing the enter key
 button.on("click", runEnter);
-form.on("submit",runEnter);
+form.on("submit", runEnter);
   
 // Create the function to run for both events
 function runEnter() {
@@ -46,10 +46,13 @@ function runEnter() {
     // Print the value to the console
     console.log(inputValue);
   
+    //Filtering table data based on user input
     var filteredData = tableData.filter(ufoRow => ufoRow.datetime === inputValue);
 
+    //Print the filtered data value
     console.log(filteredData);
 
+    //Loading the filetred data into the html table
     loadTable(filteredData);
 }
   
